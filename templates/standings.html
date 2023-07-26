@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>F1 Standings</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">F1 Season Standings</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Driver Name</th>
+                    <th>Points</th>
+                    <th>Position</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for driver in standings['MRData']['StandingsTable']['StandingsLists'][0]['DriverStandings'] %}
+                <tr>
+                    <td>{{ driver['Driver']['givenName'] }} {{ driver['Driver']['familyName'] }}</td>
+                    <td>{{ driver['points'] }}</td>
+                    <td>{{ driver['position'] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
